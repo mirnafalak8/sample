@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    form{
+        background-image: linear-gradient(#71C7BC,#1F6276);
+        padding: 30px;
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: 0 0  15px #5d5d5d;
+    }
+    h1{
+        color: tomato;
+        font-size: 50px;
+    }
+    body{
+        /* background-color: bisque; */
+        background-image: linear-gradient(to bottom right,bisque,rgb(184, 142, 91));
+        background-size: 100vw 100vh;
+    }
+    label{
+        color: white;
+    }
+    button{
+        color: white;
+        background-color: #1F6276;
+        border-radius: 40px;
+    }
+    select{
+        background-color: #1F6276;
+        color: white;
+        block-size: 35px;
+    }
+    button{
+        block-size: 30px;
+    }
+    input{
+        height: 20px;
+        border: none;
+    }
+   </style>
+</head>
+<body>
+    <center>
+    <h1>Calulator</h1><br><br>
+    <form action="{% url 'calc' %}" method="post">
+        {% csrf_token %}
+        <label for="">First number:</label><br>
+        <input type="text" name="num1"><br><br>
+        <label for="">Second number:</label><br>
+        <input type="text" name="num2"><br><br>
+        <select name="opr" id="">
+            <option class="select">Select Operation</option>
+            <option value="+">Addition</option>
+            <option value="-">subtraction</option>
+            <option value="*">Multiplication</option>
+            <option value="/">Division</option>
+        </select><br><br>
+        <button type="submit">Calculate</button><br><br>
+        <input type="text" class="result" value="{{result}}">
+    </form>
+    </center>
+</body>
+</html>
